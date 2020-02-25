@@ -18,7 +18,7 @@ class GroupChat extends React.Component{
           this.setState({
             Group: response.data
           })
-      })
+      }) 
       .catch((error) => {
           console.log("Response Error")
           console.log(error);
