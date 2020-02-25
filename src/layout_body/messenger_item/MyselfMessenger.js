@@ -5,17 +5,16 @@ class MyselfMessenger extends React.Component {
     super(props);
 
     this.state = {
-      DataGroup: this.props.value
+      Data: this.props.value
     }
   }
   render() {
-    let RenderGroup = this.state.DataGroup
+    let RenderMessenger = this.state.Data
     return (
       <div className="outgoing_msg">
         <div className="sent_msg">
-          <p>Test which is a new approach to have all
-            solutions</p>
-          <span className="time_date"> 11:01 AM    |    June 9</span> 
+          <p>{RenderMessenger.content}</p>
+          <span className="time_date"> {RenderMessenger.reg_date}</span> 
         </div>
       </div>
     );

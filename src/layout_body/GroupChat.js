@@ -1,6 +1,7 @@
 import React from 'react';
 import ChatRoom from './group_item/ChatRoom.js';
 import axios from 'axios';
+import Cookies from 'js-cookie'
 
 class GroupChat extends React.Component{
     constructor(props) {

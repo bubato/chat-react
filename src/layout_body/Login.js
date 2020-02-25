@@ -34,6 +34,7 @@ class Login extends React.Component {
       .then((res) => {
         console.log(res.data.token)
         Cookies.set('token', res.data.token)
+        Cookies.set('id', res.data.id)
 
       })
       .catch((err) => {
