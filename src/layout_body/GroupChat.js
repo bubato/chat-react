@@ -11,14 +11,14 @@ class GroupChat extends React.Component{
         }
     }
     componentDidMount() {
-      axios.get("get-group/1")
+      axios.get("get-group/" + Cookies.get('token'))
       .then((response) => {
           console.log("Response OKK")
           console.log(response.data);
           this.setState({
             Group: response.data
           })
-      })
+      }) 
       .catch((error) => {
           console.log("Response Error")
           console.log(error);
