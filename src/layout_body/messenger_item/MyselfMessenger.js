@@ -3,7 +3,6 @@ import React from 'react';
 class MyselfMessenger extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       Data: this.props.value
     }

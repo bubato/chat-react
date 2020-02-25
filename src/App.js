@@ -18,10 +18,10 @@ function App() {
           <Switch>
             <Redirect exact from="/" to="/login" />
             <Route path="/login" component={Login} />
-            <Route path="/chat" render={(props) =>
+            <Route path="/chat/:groupId" render={(props) =>
               <div>
                 <GroupChat />
-                <MessengerAction />
+                <MessengerAction value={props.match.params.groupId}/>
               </div>
             } />
           </Switch>

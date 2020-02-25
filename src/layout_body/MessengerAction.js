@@ -8,11 +8,12 @@ class MessengerAction extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-        ListMessenger: []
+        ListMessenger: [],
+        GroupId: 1
     }
   }
   componentDidMount() {
-    axios.get("get-messenger/1")
+    axios.get("get-messenger/" + this.props.value)
     .then((response) => {
         console.log("Response OKK")
         console.log(response.data);
