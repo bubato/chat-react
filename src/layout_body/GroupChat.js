@@ -1,38 +1,28 @@
 import React from 'react';
 import ChatRoom from './group_item/ChatRoom.js';
+import axios from 'axios';
 
 class GroupChat extends React.Component{
     constructor(props) {
         super(props);
 
         this.state = {
-            Group: [
-              {
-                GroupName: '2 Girls 1 Cup',
-                Avatar: 'https://ptetutorials.com/images/user-profile.png',
-                ChatDate: 'Dec 25',
-                LastChat: 'Do you want watch 2 girls drink a solid type on a cup ?'
-              },
-              {
-                GroupName: '2 Girls 1 Cup',
-                Avatar: 'https://ptetutorials.com/images/user-profile.png',
-                ChatDate: 'Dec 25',
-                LastChat: 'Do you want watch 2 girls drink a solid type on a cup ?'
-              },
-              {
-                GroupName: '2 Girls 1 Cup',
-                Avatar: 'https://ptetutorials.com/images/user-profile.png',
-                ChatDate: 'Dec 25',
-                LastChat: 'Do you want watch 2 girls drink a solid type on a cup ?'
-              },
-              {
-                GroupName: '2 Girls 1 Cup',
-                Avatar: 'https://ptetutorials.com/images/user-profile.png',
-                ChatDate: 'Dec 25',
-                LastChat: 'Do you want watch 2 girls drink a solid type on a cup ?'
-              },
-            ]
+            Group: []
         }
+    }
+    componentDidMount() {
+      axios.get("get-group/1")
+      .then((response) => {
+          console.log("Response OKK")
+          console.log(response.data);
+          this.setState({
+            Group: response.data
+          })
+      })
+      .catch((error) => {
+          console.log("Response Error")
+          console.log(error);
+      });
     }
     render(){
         let ListGroup = [];
