@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import GroupChat from './layout_body/GroupChat';
 import MessengerAction from './layout_body/MessengerAction';
