@@ -11,10 +11,10 @@ import Cookies from 'js-cookie'
 axios.defaults.baseURL = "http://muotphim.top/";
 function App() {
   return (
-    <div className="App container mt-5" >
+    <div className="App mt-5" >
       <div className="messaging">
-        <h1 className="text-center my-4">Skope</h1>
-        <div className="inbox_msg">
+        <h1 className="text-center my-4"><img src="https://skope.id/img/skopelogo.png" width="300"/></h1>
+        <div className="body-chat">
           <Switch>
             <Redirect exact from="/" to="/login" />
             <Route path="/login" component={Login} />

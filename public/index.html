@@ -32,8 +32,9 @@
       background: #f8f8f8 none repeat scroll 0 0;
       float: left;
       overflow: hidden;
-      width: 40%;
+      width: 30%;
       border-right: 1px solid #c4c4c4;
+      height: calc(100vh - 230px)
     }
 
     .inbox_msg {
@@ -131,7 +132,7 @@
     }
 
     .inbox_chat {
-      height: 550px;
+      height: calc(100vh - 230px);
       overflow-y: scroll;
     }
 
@@ -175,7 +176,7 @@
     .mesgs {
       float: left;
       padding: 30px 15px 0 25px;
-      width: 60%;
+      width: 40%;
     }
 
     .sent_msg p {
@@ -231,13 +232,19 @@
     }
 
     .msg_history {
-      height: 516px;
+      height: calc(100vh - 300px);
       overflow-y: auto;
+    }
+    .bg-template {
+      background-color: #19b0f1;
+    }
+    .body-chat {
+      height: calc(100vh - 230px)
     }
   </style>
 </head>
 
-<body>
+<body class="bg-light">
   <noscript>You need to enable JavaScript to run this app.</noscript>
   <div id="root"></div>
   <!--
