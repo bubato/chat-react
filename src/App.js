@@ -13,8 +13,8 @@ axios.defaults.baseURL = "http://muotphim.top/";
 function App() {
   return (
     <div className="App mt-5" >
-      <div className="messaging">
-        <h1 className="text-center my-4"><img src="https://skope.id/img/skopelogo.png" width="300"/></h1>
+      <div className="messaging mt-5">
+        <h1 className="text-center my-5"><img src="https://skope.id/img/skopelogo.png" width="300"/></h1>
         <div className="body-chat">
           <Switch>
             <Redirect exact from="/" to="/login" />

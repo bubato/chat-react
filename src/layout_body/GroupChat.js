@@ -34,9 +34,10 @@ class GroupChat extends React.Component{
         });
         return(
         <div className="inbox_people">
-          <div className="headind_srch">
+          <div className="headind_srch pr-3">
+            <button class="msg_send_btn position-static float-right " type="submit"><i class="fa fa-plus" aria-hidden="true"></i></button>
             <div className="recent_heading">
-              <h4>Recent</h4>
+              <h4>Group</h4>
             </div>
             <div className="srch_bar">
               

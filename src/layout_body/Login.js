@@ -40,12 +40,10 @@ class Login extends React.Component {
   }
   render() {
     return (
-      <div className="container h-100">
+      <div className="container h-100 mt-5">
         <div className="d-flex justify-content-center h-100">
           <div className="user_card">
             <div className="d-flex justify-content-center">
-              <div className="my-4">
-              </div>
             </div>
             <div className="d-flex justify-content-center form_container">
               <form>
