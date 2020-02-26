@@ -9,28 +9,58 @@ class MessengerAction extends React.Component {
     super(props);
     this.state = {
         ListMessenger: [],
-        GroupId: 1
+        Input: null
     }
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.getMessenger = this.getMessenger.bind(this);
+    this.checkUpdate = this.checkUpdate.bind(this);
   }
   componentDidMount() {
-    axios.get("get-messenger/" + this.props.value)
+    let idGroup = this.props.value;
+    this.getMessenger(idGroup, Cookies.get('update'))
+    let self = this
+    let runTime = setInterval(function(){
+      self.checkUpdate(idGroup)
+    }, 1000)
+  }
+  checkUpdate(idGroup) {
+    axios.get("get-update")
     .then((response) => {
-        console.log("Response OKK")
-        console.log(response.data);
+        if (response.data != Cookies.get('update') || !Cookies.get('update')) {
+           this.getMessenger(idGroup, response.data)
+        }
+    })
+  }
+  getMessenger(idGroup, key) {
+    axios.get("get-messenger/" + idGroup)
+    .then((response) => {
         this.setState({
           ListMessenger: response.data
         })
-    }) 
-    .catch((error) => {
-        console.log("Response Error")
-        console.log(error);
-    });
+        let objDiv = document.getElementById("box-chat");
+        objDiv.scrollTop = objDiv.scrollHeight;
+        Cookies.set('update', key)
+    })
+  }
+  handleChange(e) {
+    this.setState({ Input: e.target.value });
+  }
+  handleSubmit() {
+    let send = {
+      "token" : Cookies.get('token'),
+      "idGroup" : this.props.value,
+      "content" : this.state.Input
+    }
+    axios.get("set-messenger/" + Cookies.get('token') + '/' + this.props.value + '/' + this.state.Input)
+    .then((response) => {
+        console.log(response.data);
+    })
   }
   render() {
     let Messengers = [];
         this.state.ListMessenger.forEach(function (Item) {
             let ItemMessenger; 
-            console.log(Item.id)
             if (Item.id_account == Cookies.get('id')) {
               ItemMessenger = <MyselfMessenger value={Item}/>
             } else {
@@ -42,13 +72,13 @@ class MessengerAction extends React.Component {
         });
     return (
       <div className="mesgs">
-        <div className="msg_history">
+        <div className="msg_history" id="box-chat">
           { Messengers }
         </div>
         <div className="type_msg">
           <div className="input_msg_write">
-            <input type="text" className="write_msg" placeholder="Type a message" />
-            <button className="msg_send_btn" type="button"><i className="fa fa-paper-plane-o" aria-hidden="true"></i></button>
+            <input type="text" className="write_msg" onChange={this.handleChange} placeholder="Type a message" />
+            <button onClick={this.handleSubmit} className="msg_send_btn" type="submit"><i className="fa fa-paper-plane-o" aria-hidden="true"></i></button>
           </div>
         </div>
       </div>

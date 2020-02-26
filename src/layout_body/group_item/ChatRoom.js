@@ -1,4 +1,5 @@
 import React from 'react';
+import Cookies from 'js-cookie'
 
 class ChatRoom extends React.Component {
   constructor(props) {
@@ -11,6 +12,7 @@ class ChatRoom extends React.Component {
     this.SubLastChat= this.SubLastChat.bind(this);
   }
   ChangeGroup() {
+    Cookies.set('update', null);
     window.location.href = this.state.DataGroup.id
   }
   SubLastChat (mess) {
