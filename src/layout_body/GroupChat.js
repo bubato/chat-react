@@ -27,7 +27,7 @@ class GroupChat extends React.Component{
     }
     render(){
         let ListGroup = [];
-        this.state.Group.forEach(function (Item) {
+        (this.state.Group).forEach(function (Item) {
             ListGroup.push(
               <ChatRoom value={Item}/>
             )
