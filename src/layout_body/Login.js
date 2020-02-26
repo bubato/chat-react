@@ -25,16 +25,13 @@ class Login extends React.Component {
   }
   handleLogin(e) {
     e.preventDefault()
-    // let formData = {
-    //   username: this.state.userName,
-    //   password: this.state.password
-    // }
-    axios.post("http://muotphim.top/login/" +this.state.userName + "/" +this.state.password
+    axios.post("login/" +this.state.userName + "/" +this.state.password
      )
       .then((res) => {
         console.log(res.data.token)
         Cookies.set('token', res.data.token)
         Cookies.set('id', res.data.id)
+        window.location.href = '/chat/start'
 
       })
       .catch((err) => {
@@ -74,15 +71,6 @@ class Login extends React.Component {
                   <button onClick={this.handleLogin} type="button" name="button" className="btn login_btn">Login</button>
                 </div>
               </form>
-            </div>
-
-            <div className="mt-4">
-              <div className="d-flex justify-content-center links">
-                Don't have an account? <a href="#" className="ml-2">Sign Up</a>
-              </div>
-              <div className="d-flex justify-content-center links">
-                <a href="#">Forgot your password?</a>
-              </div>
             </div>
           </div>
         </div>
