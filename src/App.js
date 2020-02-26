@@ -6,6 +6,7 @@ import GroupChat from './layout_body/GroupChat';
 import MessengerAction from './layout_body/MessengerAction';
 import axios from 'axios';
 import Login from './layout_body/Login'
+import ListUsers from './layout_body/ListUsers'
 import Cookies from 'js-cookie'
 
 axios.defaults.baseURL = "http://muotphim.top/";
@@ -22,6 +23,7 @@ function App() {
               <div>
                 <GroupChat />
                 <MessengerAction value={props.match.params.groupId}/>
+                <ListUsers/>
               </div>
             } />
           </Switch>
